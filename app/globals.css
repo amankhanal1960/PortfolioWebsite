@@ -1,5 +1,9 @@
 @import "tailwindcss";
 
+* {
+  cursor: none !important;
+}
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
@@ -19,8 +23,42 @@
   }
 }
 
-body {
+/* body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+} */
+
+/* styles/globals.css */
+
+body {
+  /* base gradient */
+  background: linear-gradient(135deg, #030d14 0%, #091923 50%, #030d14 100%);
+  position: relative;
+}
+
+/* overlay a square grid */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    /* vertical lines */ repeating-linear-gradient(
+      to right,
+      rgba(255, 255, 255, 0.05) 0px,
+      rgba(255, 255, 255, 0.05) 0.5px,
+      transparent 2px,
+      transparent 102px
+    ),
+    /* horizontal lines */
+      repeating-linear-gradient(
+        to bottom,
+        rgba(255, 255, 255, 0.05) 0px,
+        rgba(255, 255, 255, 0.05) 0.5px,
+        transparent 2px,
+        transparent 102px
+      );
+  background-size: 102px 102px; /* each “cell” is 102×102px */
+  z-index: 0;
 }
