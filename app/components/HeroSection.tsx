@@ -93,7 +93,7 @@ export default function HeroSection() {
       </div>
 
       <motion.div
-        className="max-w-4xl mx-auto "
+        className="max-w-4xl mx-auto"
         initial="hidden"
         animate="show"
         variants={container}
