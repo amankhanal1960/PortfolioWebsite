@@ -16,14 +16,14 @@ export default function Navbar() {
   ];
 
   return (
-    <header className="fixed top-5 left-2 right-5 lg:left-40 lg:right-40 md:left-20 md:right-20 sm:left-10 sm:right-10 z-50 text-white">
+    <header className="fixed top-5 left-2 right-5 lg:left-40 lg:right-40 md:left-20 md:right-20 sm:left-10 sm:right-10 z-50 dark:text-white text-gray-800">
       <div className="container px-4 py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
           <Link
             href="/"
             onClick={() => setIsMenuOpen(false)}
-            className="flex items-center text-2xl font-bold text-gray-200"
+            className="flex items-center text-2xl font-bold dark:text-white text-gray-800"
           >
             Aman
           </Link>
@@ -34,7 +34,7 @@ export default function Navbar() {
               <Link
                 key={href}
                 href={href}
-                className="relative text-gray-400 hover:text-white transition-colors duration-300 group text-lg"
+                className="relative text-gray-300 hover:text-white transition-colors duration-300 group text-lg"
               >
                 {label}
                 <span className="absolute left-1/2 bottom-[-2px] h-[0.5px] w-0 bg-white transition-all duration-300 transform -translate-x-1/2 group-hover:w-[calc(100%+8px)]"></span>

@@ -4,6 +4,7 @@ import "./globals.css";
 import CustomCursor from "./components/CustomCursor";
 import Navbar from "./components/navbar";
 const inter = Inter({ subsets: ["latin"] });
+import { Providers } from "./providers";
 
 export default function RootLayout({
   children,
@@ -11,13 +12,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body className={`${inter.className} cursor-none`}>
-        {/* Navbar */}
-        <Navbar />
-        {/* Main content */}
-        {children}
-        <CustomCursor />
+    <html lang="en" className="bg-theme-transition" suppressHydrationWarning>
+      <body
+        className={`${inter.className} cursor-none min-h-screen bg-background`}
+      >
+        <Providers>
+          <Navbar />
+          <main>{children}</main>
+          <CustomCursor />
+        </Providers>
       </body>
     </html>
   );

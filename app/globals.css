@@ -1,23 +1,25 @@
 @import "tailwindcss";
 
-* {
-  cursor: none !important;
-}
-
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --grid-color: rgba(23, 23, 23, 0.05); /* Light mode grid color */
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+.dark {
+  --background: #0a0a0a;
+  --foreground: #ededed;
+  --grid-color: rgba(237, 237, 237, 0.05); /* Dark mode grid color */
 }
 
 body {
-  /* Updated background with multiple gradients */
+  background-color: var(--background);
+  position: relative;
+  transition: background-color 0.3s ease;
+}
+
+/* Dark mode gradients */
+.dark body {
   background-image: linear-gradient(
       135deg,
       #030d14 0%,
@@ -26,36 +28,34 @@ body {
     ),
     radial-gradient(
       circle at 80% 50%,
-      rgba(255, 153, 255, 0.1) 0%,
-      rgba(204, 153, 255, 0.05) 50%,
+      rgba(242, 186, 242, 0.1) 0%,
+      rgba(147, 126, 168, 0.05) 50%,
       transparent 100%
     );
   background-blend-mode: screen;
-  position: relative;
 }
 
-/* overlay a square grid */
+/* Grid overlay - works for both modes */
 body::before {
   content: "";
   position: fixed;
   inset: 0;
   pointer-events: none;
-  background-image:
-    /* vertical lines */ repeating-linear-gradient(
+  background-image: repeating-linear-gradient(
       to right,
-      rgba(255, 255, 255, 0.05) 0px,
-      rgba(255, 255, 255, 0.05) 0.5px,
+      var(--grid-color) 0px,
+      var(--grid-color) 0.5px,
       transparent 2px,
       transparent 102px
     ),
-    /* horizontal lines */
-      repeating-linear-gradient(
-        to bottom,
-        rgba(255, 255, 255, 0.05) 0px,
-        rgba(255, 255, 255, 0.05) 0.5px,
-        transparent 2px,
-        transparent 102px
-      );
-  background-size: 102px 102px; /* each “cell” is 102×102px */
+    repeating-linear-gradient(
+      to bottom,
+      var(--grid-color) 0px,
+      var(--grid-color) 0.5px,
+      transparent 2px,
+      transparent 102px
+    );
+  background-size: 102px 102px;
   z-index: 0;
+  transition: background-image 0.3s ease;
 }
