@@ -3,9 +3,28 @@
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 import { Twitter, Facebook, Linkedin, Github, Instagram } from "lucide-react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
+import { useState, useEffect } from "react";
 
 export default function HeroSection() {
+  const greetings = [
+    "Hello",
+    "Bonjour",
+    "Salut",
+    "Hola",
+    "Ciao",
+    "Guten Tag",
+    "Namaste",
+  ];
+  const [index, setIndex] = useState(0);
+
+  useEffect(() => {
+    const id = setInterval(() => {
+      setIndex((prev) => (prev + 1) % greetings.length);
+    }, 3000); // 3000ms = 3s :contentReference[oaicite:0]{index=0}
+    return () => clearInterval(id);
+  }, []);
+
   // Animation variants
   const container = {
     hidden: { opacity: 0 },
@@ -40,14 +59,49 @@ export default function HeroSection() {
     },
   };
 
+  const fade = {
+    initial: { opacity: 0, y: -10 },
+    animate: { opacity: 1, y: 0 },
+    exit: { opacity: 0, y: 10 },
+  };
+
+  // Arrow animation
+  const arrowAnim = {
+    animate: {
+      x: [0, 10, 0], // move right then back
+      scaleX: [2, 2, 2], // stretch horizontally
+    },
+    transition: {
+      duration: 1.2,
+      ease: "easeInOut",
+      repeat: Infinity,
+    },
+  };
+
   return (
-    <section className="min-h-screen flex flex-col items-center justify-center px-5 sm:px-10 md:px-20 lg:px-32 text-white">
+    <section className="min-h-screen flex flex-col justify-center px-5 sm:px-10 md:px-20 lg:px-32 text-white">
       <motion.div
         className="max-w-4xl mx-auto "
         initial="hidden"
         animate="show"
         variants={container}
       >
+        <div className="flex items-start h-[3rem] mb-4">
+          <AnimatePresence mode="wait">
+            <motion.span
+              key={greetings[index]}
+              variants={fade}
+              initial="initial"
+              animate="animate"
+              exit="exit"
+              transition={{ duration: 0.8 }}
+              className="text-2xl font-semibold text-gray-600"
+            >
+              {greetings[index]}
+            </motion.span>
+          </AnimatePresence>
+        </div>
+
         <motion.h1
           className="text-3xl lg:text-5xl font-bold mb-8"
           variants={item}
@@ -55,11 +109,10 @@ export default function HeroSection() {
           I&apos;M AMAN KHANAL
         </motion.h1>
 
-        <div className="space-y-10 text-gray-300 text-base md:text-lg leading-relaxed mx-auto">
+        <div className="space-y-10 text-gray-300 text-sm md:text-base leading-loose mx-auto">
           <motion.p variants={item}>
-            Your friendly neighborhood frontend developer, UX architect, and
-            JavaScript engineer. I spend my days (and often nights) painting the
-            Internet canvas with{" "}
+            Your friendly neighborhood Fullstack web developer. I spend most of
+            my days (and often nights) painting the Internet canvas with{" "}
             <span className="text-white font-medium">PROJECTS</span> and lines
             of code, turning zeroes and ones into immersive, interactive
             experiences,
@@ -70,9 +123,9 @@ export default function HeroSection() {
             order. When I&apos;m not crafting beautiful web experiences, you can
             find me reading{" "}
             <span className="text-white font-medium">ARTICLES</span> or swaying
-            to the rhythm of Pop Music & Jazz, losing myself in the captivating
-            flow of melodies. anyways you can{" "}
-            <span className="text-white font-medium">CONTACT ME</span>
+            to the rhythm of classic music, losing myself in the captivating
+            flow of melodies. anyways you can always{" "}
+            <span className="text-white font-medium">CONTACT ME !</span>
           </motion.p>
         </div>
 
@@ -81,8 +134,10 @@ export default function HeroSection() {
             href="#about"
             className="inline-flex items-center text-white hover:opacity-80 transition-opacity"
           >
-            <span className="mr-2">See More About Me</span>
-            <ArrowRight size={20} />
+            <span className="mr-2 lg:text-sm text-xs">See More About Me </span>{" "}
+            <motion.span {...arrowAnim}>
+              <ArrowRight size={20} />
+            </motion.span>
           </Link>
         </motion.div>
 
@@ -94,7 +149,7 @@ export default function HeroSection() {
           transition={{ delayChildren: 1.2, staggerChildren: 0.1 }}
         >
           <motion.a
-            href="#"
+            href="https://x.com/AmanKhanal1960"
             className="text-gray-400 hover:text-white transition-colors"
             variants={socialItem}
             whileHover={{ y: -3 }}
@@ -103,7 +158,7 @@ export default function HeroSection() {
             <span className="sr-only">Twitter</span>
           </motion.a>
           <motion.a
-            href="#"
+            href="https://www.facebook.com/amankhanal1960"
             className="text-gray-400 hover:text-white transition-colors"
             variants={socialItem}
             whileHover={{ y: -3 }}
@@ -112,7 +167,7 @@ export default function HeroSection() {
             <span className="sr-only">Facebook</span>
           </motion.a>
           <motion.a
-            href="#"
+            href="https://www.linkedin.com/in/aman-khanal-225700260/"
             className="text-gray-400 hover:text-white transition-colors"
             variants={socialItem}
             whileHover={{ y: -3 }}
@@ -121,7 +176,7 @@ export default function HeroSection() {
             <span className="sr-only">LinkedIn</span>
           </motion.a>
           <motion.a
-            href="#"
+            href="https://github.com/amankhanal1960"
             className="text-gray-400 hover:text-white transition-colors"
             variants={socialItem}
             whileHover={{ y: -3 }}
@@ -130,7 +185,7 @@ export default function HeroSection() {
             <span className="sr-only">GitHub</span>
           </motion.a>
           <motion.a
-            href="#"
+            href="https://www.instagram.com/_amankhanal/"
             className="text-gray-400 hover:text-white transition-colors"
             variants={socialItem}
             whileHover={{ y: -3 }}
