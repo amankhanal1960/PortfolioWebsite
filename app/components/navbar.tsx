@@ -16,7 +16,7 @@ export default function Navbar() {
   ];
 
   return (
-    <header className="fixed top-5 left-5 right-5 lg:left-40 lg:right-40 md:left-20 md:right-20 sm:left-10 sm:right-10 z-50 text-white">
+    <header className="fixed top-5 left-2 right-5 lg:left-40 lg:right-40 md:left-20 md:right-20 sm:left-10 sm:right-10 z-50 text-white">
       <div className="container px-4 py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}

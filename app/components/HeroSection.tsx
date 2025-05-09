@@ -1,10 +1,17 @@
 "use client";
 
-import { ArrowRight } from "lucide-react";
 import Link from "next/link";
-import { Twitter, Facebook, Linkedin, Github, Instagram } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faXTwitter,
+  faFacebook,
+  faLinkedin,
+  faGithub,
+  faInstagram,
+} from "@fortawesome/free-brands-svg-icons";
+import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 
 export default function HeroSection() {
   const greetings = [
@@ -21,9 +28,9 @@ export default function HeroSection() {
   useEffect(() => {
     const id = setInterval(() => {
       setIndex((prev) => (prev + 1) % greetings.length);
-    }, 3000); // 3000ms = 3s :contentReference[oaicite:0]{index=0}
+    }, 3000);
     return () => clearInterval(id);
-  }, []);
+  }, [greetings.length]);
 
   // Animation variants
   const container = {
@@ -68,13 +75,13 @@ export default function HeroSection() {
   // Arrow animation
   const arrowAnim = {
     animate: {
-      x: [0, 10, 0], // move right then back
+      x: [2, 15, 2], // move right then back
       scaleX: [2, 2, 2], // stretch horizontally
     },
     transition: {
       duration: 1.2,
       ease: "easeInOut",
-      repeat: Infinity,
+      repeat: Number.POSITIVE_INFINITY,
     },
   };
 
@@ -95,7 +102,7 @@ export default function HeroSection() {
               animate="animate"
               exit="exit"
               transition={{ duration: 0.8 }}
-              className="text-2xl font-semibold text-gray-600"
+              className="text-2xl font-serif text-white"
             >
               {greetings[index]}
             </motion.span>
@@ -136,7 +143,7 @@ export default function HeroSection() {
           >
             <span className="mr-2 lg:text-sm text-xs">See More About Me </span>{" "}
             <motion.span {...arrowAnim}>
-              <ArrowRight size={20} />
+              <FontAwesomeIcon icon={faArrowRight} />
             </motion.span>
           </Link>
         </motion.div>
@@ -153,8 +160,10 @@ export default function HeroSection() {
             className="text-gray-400 hover:text-white transition-colors"
             variants={socialItem}
             whileHover={{ y: -3 }}
+            rel="noopener noreferrer"
+            target="_blank"
           >
-            <Twitter size={20} />
+            <FontAwesomeIcon icon={faXTwitter} />
             <span className="sr-only">Twitter</span>
           </motion.a>
           <motion.a
@@ -162,8 +171,10 @@ export default function HeroSection() {
             className="text-gray-400 hover:text-white transition-colors"
             variants={socialItem}
             whileHover={{ y: -3 }}
+            rel="noopener noreferrer"
+            target="_blank"
           >
-            <Facebook size={20} />
+            <FontAwesomeIcon icon={faFacebook} />
             <span className="sr-only">Facebook</span>
           </motion.a>
           <motion.a
@@ -171,8 +182,10 @@ export default function HeroSection() {
             className="text-gray-400 hover:text-white transition-colors"
             variants={socialItem}
             whileHover={{ y: -3 }}
+            rel="noopener noreferrer"
+            target="_blank"
           >
-            <Linkedin size={20} />
+            <FontAwesomeIcon icon={faLinkedin} />
             <span className="sr-only">LinkedIn</span>
           </motion.a>
           <motion.a
@@ -180,8 +193,10 @@ export default function HeroSection() {
             className="text-gray-400 hover:text-white transition-colors"
             variants={socialItem}
             whileHover={{ y: -3 }}
+            rel="noopener noreferrer"
+            target="_blank"
           >
-            <Github size={20} />
+            <FontAwesomeIcon icon={faGithub} />
             <span className="sr-only">GitHub</span>
           </motion.a>
           <motion.a
@@ -189,8 +204,10 @@ export default function HeroSection() {
             className="text-gray-400 hover:text-white transition-colors"
             variants={socialItem}
             whileHover={{ y: -3 }}
+            rel="noopener noreferrer"
+            target="_blank"
           >
-            <Instagram size={20} />
+            <FontAwesomeIcon icon={faInstagram} />
             <span className="sr-only">Instagram</span>
           </motion.a>
         </motion.div>
