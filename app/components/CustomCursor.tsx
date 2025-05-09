@@ -47,7 +47,7 @@ export default function CustomCursor() {
 
       {/* Larger circle cursor with delay */}
       <div
-        className="pointer-events-none fixed z-40 h-14 w-14 -translate-x-1/2 -translate-y-1/2 rounded-full border border-black mix-blend-difference transition-all duration-600 ease-out dark:border-white"
+        className="pointer-events-none fixed z-50 h-14 w-14 -translate-x-1/2 -translate-y-1/2 rounded-full border border-black mix-blend-difference transition-all duration-600 ease-out dark:border-white"
         style={{
           left: `${position.x}px`,
           top: `${position.y}px`,
