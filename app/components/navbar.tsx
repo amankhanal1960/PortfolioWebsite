@@ -9,11 +9,11 @@ export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const navLinks = [
-    { label: "Home", href: "#home", delay: 50 },
-    { label: "About", href: "#about", delay: 50 },
-    { label: "Projects", href: "#projects", delay: 50 },
-    { label: "Skills", href: "#skills", delay: 50 },
-    { label: "Contact", href: "#contact", delay: 50 },
+    { label: "Home", href: "/", delay: 50 },
+    { label: "About", href: "/about", delay: 50 },
+    { label: "Projects", href: "/projects", delay: 50 },
+    { label: "Skills", href: "/skills", delay: 50 },
+    { label: "Contact", href: "/contact", delay: 50 },
   ];
 
   return (
@@ -81,7 +81,7 @@ export default function Navbar() {
                 style={{ transitionDelay: `${delay}ms` }}
               >
                 {label}
-                <span className="absolute left-1/2 bottom-[-2px] h-[0.5px] w-0 bg-white transition-all duration-300 transform -translate-x-1/2 group-hover:w-[calc(100%+8px)]"></span>
+                <span className="absolute left-1/2 bottom-[-2px] h-[0.5px] w-0 bg-white transition-all duration-300 transform -translate-x-1/2 group-hover:w-[calc(100%+18px)]"></span>
               </Link>
             ))}
           </nav>

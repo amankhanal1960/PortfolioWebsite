@@ -86,7 +86,7 @@ export default function HeroSection() {
   };
 
   return (
-    <section className="min-h-screen flex flex-col justify-center px-5 sm:px-10 md:px-20 lg:px-32 dark:text-white text-blue-800 mix-blend-difference relative">
+    <section className="h-screen flex flex-col justify-center px-5 sm:px-10 md:px-20 lg:px-32 dark:text-white text-blue-800 mix-blend-difference relative pt-16">
       <motion.div
         className="max-w-4xl mx-auto"
         initial="hidden"
@@ -117,7 +117,7 @@ export default function HeroSection() {
           I&apos;M AMAN KHANAL
         </motion.h1>
 
-        <div className="space-y-10 text-foreground text-sm md:text-base leading-loose mx-auto">
+        <div className="space-y-6 text-foreground text-sm md:text-base leading-loose mx-auto">
           <motion.p variants={item}>
             Your friendly neighborhood Fullstack web developer. I spend most of
             my days (and often nights) painting the Internet canvas with{" "}
@@ -137,9 +137,9 @@ export default function HeroSection() {
           </motion.p>
         </div>
 
-        <motion.div className="mt-12" variants={item}>
+        <motion.div className="mt-8" variants={item}>
           <Link
-            href="#about"
+            href="/about"
             className="inline-flex items-center text-foreground hover:opacity-80 transition-opacity"
           >
             <span className="mr-2 lg:text-sm text-xs">See More About Me </span>{" "}
@@ -150,7 +150,7 @@ export default function HeroSection() {
         </motion.div>
 
         <motion.div
-          className="flex space-x-6 mt-16 justify-start"
+          className="flex space-x-6 mt-10 justify-start"
           variants={container}
           initial="hidden"
           animate="show"

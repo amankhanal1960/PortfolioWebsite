@@ -2,7 +2,6 @@ import type React from "react";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import CustomCursor from "./components/CustomCursor";
-import Navbar from "./components/navbar";
 const inter = Inter({ subsets: ["latin"] });
 import { ThemeProvider } from "./providers";
 
@@ -20,7 +19,6 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <Navbar />
           <main>{children}</main>
           <CustomCursor />
         </ThemeProvider>
