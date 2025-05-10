@@ -27,6 +27,20 @@ const arrowAnim = {
   },
 };
 
+// Animation variants for timeline items
+const itemVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: (i: number) => ({
+    opacity: 1,
+    y: 0,
+    transition: {
+      delay: i * 0.1,
+      duration: 0.5,
+      ease: "easeOut",
+    },
+  }),
+};
+
 const education: TimelineItemProps[] = [
   {
     title: "+2, 2020 - 2022",
@@ -83,15 +97,28 @@ interface TimelineSectionProps {
 const TimelineSection: React.FC<TimelineSectionProps> = ({ title, items }) => {
   return (
     <div className="container mx-auto px-4 max-w-4xl mb-16">
-      <h2 className="lg:text-3xl text-2xl font-bold mb-8 text-center">
+      <motion.h2
+        className="lg:text-3xl text-xl font-bold mb-8 text-center text-gray-100"
+        initial={{ opacity: 0, y: -10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+      >
         {title}
-      </h2>
+      </motion.h2>
       <div className="relative">
         {/* Vertical Line */}
         <div className="absolute left-1 sm:left-2 md:left-3 lg:left-4 top-2 bottom-0 w-[1px] bg-gray-200 h-[calc(100%-8px)]"></div>
 
         {items.map((item, idx) => (
-          <div key={idx} className="relative flex mb-16 last:mb-0">
+          <motion.div
+            key={idx}
+            className="relative flex mb-16 last:mb-0"
+            custom={idx}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-50px" }}
+            variants={itemVariants}
+          >
             {/* Circle Bullet */}
             <div className="absolute left-1 sm:left-2 md:left-3 lg:left-4 top-2 w-4 h-4 border-2 border-black bg-gray-200 rounded-full transform -translate-x-1/2 z-10"></div>
 
@@ -103,13 +130,13 @@ const TimelineSection: React.FC<TimelineSectionProps> = ({ title, items }) => {
                     <item.Icon />
                   </div>
                 )}
-                <h3 className="lg:text-2xl text-xl font-bold text-gray-300">
+                <h3 className="lg:text-2xl text-lg font-bold text-gray-200">
                   {item.title}
                 </h3>
               </div>
 
               <div className="p-2">
-                <div className="text-gray-300 leading-relaxed mb-4 text-sm">
+                <div className="text-gray-300 leading-relaxed mb-4 lg:text-sm">
                   <ReactMarkdown remarkPlugins={[remarkGfm]}>
                     {item.description}
                   </ReactMarkdown>
@@ -127,7 +154,7 @@ const TimelineSection: React.FC<TimelineSectionProps> = ({ title, items }) => {
                 )}
               </div>
             </div>
-          </div>
+          </motion.div>
         ))}
       </div>
     </div>
@@ -136,26 +163,40 @@ const TimelineSection: React.FC<TimelineSectionProps> = ({ title, items }) => {
 
 const Timeline: React.FC = () => {
   return (
-    <div className="min-h-screen">
-      <motion.div className="absolute lg:left-4 left-1 lg:top-4 top-2 z-50 px-2 py-3">
+    <div className="min-h-screen text-gray-100 py-8">
+      <motion.div
+        className="fixed lg:left-4 left-2 lg:top-4 top-2 z-50 px-2 py-2"
+        initial={{ x: -20, opacity: 0 }}
+        animate={{ x: 0, opacity: 1 }}
+        transition={{ delay: 0.2 }}
+      >
         <Link
           href="/"
           className="inline-flex items-center text-gray-300 hover:text-white transition-color gap-5"
         >
           <motion.span {...arrowAnim} className="inline-block origin-left">
-            <FaArrowLeft />
+            <FaArrowLeft className="w-4 h-4" />
           </motion.span>
-          <span className="lg:text-xl text-lg">Home</span>
+          <span className="text-sm lg:text-base">Home</span>
         </Link>
       </motion.div>
 
-      <h1 className="lg:text-4xl text-3xl font-bold text-center py-12">
-        About Me.
-      </h1>
+      <motion.h1
+        className="lg:text-5xl md:text-3xl text-2xl font-bold text-center py-12"
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.7, ease: "easeOut" }}
+      >
+        About Me
+      </motion.h1>
 
       <TimelineSection title="Education" items={education} />
       <TimelineSection title="Skills" items={skills} />
       <TimelineSection title="Experience" items={items} />
+
+      <footer className="text-center text-gray-500 text-sm py-8 mt-8">
+        <p>© {new Date().getFullYear()} Aman Khanal. All rights reserved.</p>
+      </footer>
     </div>
   );
 };
