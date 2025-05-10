@@ -1,58 +1,58 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef } from "react";
 
 export default function CustomCursor() {
-  const [position, setPosition] = useState({ x: 0, y: 0 });
-  const [visible, setVisible] = useState(false);
+  const dotRef = useRef<HTMLDivElement>(null);
+  const circleRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    // Show cursor when it moves
-    const handleMouseMove = (e: MouseEvent) => {
-      setPosition({ x: e.clientX, y: e.clientY });
-      setVisible(true);
+    let mouseX = 0,
+      mouseY = 0;
+    const onMove = (e: MouseEvent) => {
+      mouseX = e.clientX;
+      mouseY = e.clientY;
     };
+    document.addEventListener("mousemove", onMove);
 
-    // Hide cursor when it leaves the window
-    const handleMouseLeave = () => {
-      setVisible(false);
+    const loop = () => {
+      if (dotRef.current && circleRef.current) {
+        const transform = `translate3d(${mouseX}px, ${mouseY}px, 0)`;
+        // dot jumps immediately
+        dotRef.current.style.transform = transform;
+        // circle transitions
+        circleRef.current.style.transform = transform;
+      }
+      requestAnimationFrame(loop);
     };
+    loop();
 
-    // Show cursor when it enters the window
-    const handleMouseEnter = () => {
-      setVisible(true);
-    };
-
-    document.addEventListener("mousemove", handleMouseMove);
-    document.addEventListener("mouseleave", handleMouseLeave);
-    document.addEventListener("mouseenter", handleMouseEnter);
-
-    return () => {
-      document.removeEventListener("mousemove", handleMouseMove);
-      document.removeEventListener("mouseleave", handleMouseLeave);
-      document.removeEventListener("mouseenter", handleMouseEnter);
-    };
+    return () => document.removeEventListener("mousemove", onMove);
   }, []);
 
   return (
-    <div className={`${visible ? "opacity-100" : "opacity-0"}`}>
-      {/* Small dot cursor */}
+    <>
       <div
-        className="pointer-events-none fixed z-50 h-2 w-2 -translate-x-1/2 -translate-y-1/2 rounded-full bg-black mix-blend-difference transition-transform duration-300 ease-out dark:bg-white"
-        style={{
-          left: `${position.x}px`,
-          top: `${position.y}px`,
-        }}
+        ref={dotRef}
+        className="
+    pointer-events-none fixed z-50 h-2 w-2
+    top-0 left-0
+    -translate-x-1/2 -translate-y-1/2
+    rounded-full bg-black mix-blend-difference
+    dark:bg-white
+  "
       />
-
-      {/* Larger circle cursor with delay */}
       <div
-        className="pointer-events-none fixed z-50 h-14 w-14 -translate-x-1/2 -translate-y-1/2 rounded-full border border-black mix-blend-difference transition-all duration-600 ease-out dark:border-white"
-        style={{
-          left: `${position.x}px`,
-          top: `${position.y}px`,
-        }}
+        ref={circleRef}
+        className="fixed top-0 left-0
+          pointer-events-none z-50
+          h-14 w-14 -translate-x-1/2 -translate-y-1/2
+          rounded-full border border-black
+          transition-transform duration-400 ease-out
+          will-change-transform 
+         dark:border-white
+        "
       />
-    </div>
+    </>
   );
 }

@@ -4,7 +4,7 @@ import "./globals.css";
 import CustomCursor from "./components/CustomCursor";
 import Navbar from "./components/navbar";
 const inter = Inter({ subsets: ["latin"] });
-import { Providers } from "./providers";
+import { ThemeProvider } from "./providers";
 
 export default function RootLayout({
   children,
@@ -13,14 +13,17 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="bg-theme-transition" suppressHydrationWarning>
-      <body
-        className={`${inter.className} cursor-none min-h-screen bg-background`}
-      >
-        <Providers>
+      <body className={`${inter.className}`}>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
           <Navbar />
           <main>{children}</main>
           <CustomCursor />
-        </Providers>
+        </ThemeProvider>
       </body>
     </html>
   );

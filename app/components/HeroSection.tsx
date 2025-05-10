@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import ThemeSwitch from "./ThemeSwitch";
+import { ModeToggle } from "./ThemeSwitch";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -87,10 +87,8 @@ export default function HeroSection() {
   };
 
   return (
-    <section className="min-h-screen flex flex-col justify-center px-5 sm:px-10 md:px-20 lg:px-32 dark:text-white text-gray-800 relative">
-      <div className="absolute top-4 right-4">
-        <ThemeSwitch />
-      </div>
+    <section className="min-h-screen flex flex-col justify-center px-5 sm:px-10 md:px-20 lg:px-32 dark:text-white text-blue-800 mix-blend-difference relative">
+      <div className="absolute top-4 right-4">{<ModeToggle />}</div>
 
       <motion.div
         className="max-w-4xl mx-auto"
@@ -107,7 +105,7 @@ export default function HeroSection() {
               animate="animate"
               exit="exit"
               transition={{ duration: 0.8 }}
-              className="text-2xl font-serif dark:text-white text-gray-800"
+              className="text-2xl font-serif text-foreground"
             >
               {greetings[index]}
             </motion.span>
@@ -115,42 +113,36 @@ export default function HeroSection() {
         </div>
 
         <motion.h1
-          className="text-3xl lg:text-5xl font-bold mb-8"
+          className="text-3xl lg:text-5xl font-bold mb-8 text-foreground"
           variants={item}
         >
           I&apos;M AMAN KHANAL
         </motion.h1>
 
-        <div className="space-y-10 dark:text-white text-gray-800 text-sm md:text-base leading-loose mx-auto">
+        <div className="space-y-10 text-foreground text-sm md:text-base leading-loose mx-auto">
           <motion.p variants={item}>
             Your friendly neighborhood Fullstack web developer. I spend most of
             my days (and often nights) painting the Internet canvas with{" "}
-            <span className="dark:text-white text-gray-800 font-medium">
-              PROJECTS
-            </span>{" "}
-            and lines of code, turning zeroes and ones into immersive,
-            interactive experiences,
+            <span className="text-foreground font-medium">PROJECTS</span> and
+            lines of code, turning zeroes and ones into immersive, interactive
+            experiences,
           </motion.p>
 
           <motion.p variants={item}>
             I tread the path of minimalism, finding beauty in simplicity and
             order. When I&apos;m not crafting beautiful web experiences, you can
             find me reading{" "}
-            <span className="dark:text-white text-gray-800 font-medium">
-              ARTICLES
-            </span>{" "}
-            or swaying to the rhythm of classic music, losing myself in the
+            <span className="text-foreground font-medium">ARTICLES</span> or
+            swaying to the rhythm of classic music, losing myself in the
             captivating flow of melodies. anyways you can always{" "}
-            <span className="dark:text-white text-gray-800 font-medium">
-              CONTACT ME !
-            </span>
+            <span className="text-foreground font-medium">CONTACT ME !</span>
           </motion.p>
         </div>
 
         <motion.div className="mt-12" variants={item}>
           <Link
             href="#about"
-            className="inline-flex items-center dark:text-white text-gray-800 hover:opacity-80 transition-opacity"
+            className="inline-flex items-center text-foreground hover:opacity-80 transition-opacity"
           >
             <span className="mr-2 lg:text-sm text-xs">See More About Me </span>{" "}
             <motion.span {...arrowAnim}>
@@ -168,7 +160,7 @@ export default function HeroSection() {
         >
           <motion.a
             href="https://x.com/AmanKhanal1960"
-            className="dark:text-white text-gray-800 hover:text-white transition-colors"
+            className="text-foreground hover:opacity-80 transition-opacity"
             variants={socialItem}
             whileHover={{ y: -3 }}
             rel="noopener noreferrer"
@@ -179,7 +171,7 @@ export default function HeroSection() {
           </motion.a>
           <motion.a
             href="https://www.facebook.com/amankhanal1960"
-            className="dark:text-white text-gray-800 hover:text-white transition-colors"
+            className="text-foreground hover:opacity-80 transition-opacity"
             variants={socialItem}
             whileHover={{ y: -3 }}
             rel="noopener noreferrer"
@@ -190,7 +182,7 @@ export default function HeroSection() {
           </motion.a>
           <motion.a
             href="https://www.linkedin.com/in/aman-khanal-225700260/"
-            className="dark:text-white text-gray-800 hover:text-white transition-colors"
+            className="text-foreground hover:opacity-80 transition-opacity"
             variants={socialItem}
             whileHover={{ y: -3 }}
             rel="noopener noreferrer"
@@ -201,7 +193,7 @@ export default function HeroSection() {
           </motion.a>
           <motion.a
             href="https://github.com/amankhanal1960"
-            className="dark:text-white text-gray-800 hover:text-white transition-colors"
+            className="text-foreground hover:opacity-80 transition-opacity"
             variants={socialItem}
             whileHover={{ y: -3 }}
             rel="noopener noreferrer"
@@ -212,7 +204,7 @@ export default function HeroSection() {
           </motion.a>
           <motion.a
             href="https://www.instagram.com/_amankhanal/"
-            className="dark:text-white text-gray-800 hover:text-white transition-colors"
+            className="text-foreground hover:opacity-80 transition-opacity"
             variants={socialItem}
             whileHover={{ y: -3 }}
             rel="noopener noreferrer"
