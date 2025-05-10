@@ -1,5 +1,6 @@
 "use client";
 
+import { ModeToggle } from "./ThemeSwitch";
 import { useState } from "react";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
@@ -29,17 +30,21 @@ export default function Navbar() {
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-8 text-gray-400">
-            {navLinks.map(({ label, href }) => (
-              <Link
-                key={href}
-                href={href}
-                className="relative text-gray-300 hover:text-white transition-colors duration-300 group text-lg"
-              >
-                {label}
-                <span className="absolute left-1/2 bottom-[-2px] h-[0.5px] w-0 bg-white transition-all duration-300 transform -translate-x-1/2 group-hover:w-[calc(100%+8px)]"></span>
-              </Link>
-            ))}
+          <nav className="hidden md:flex items-center justify-between text-gray-400 gap-4">
+            <div className="flex items-center space-x-8">
+              {navLinks.map(({ label, href }) => (
+                <Link
+                  key={href}
+                  href={href}
+                  className="relative text-gray-300 hover:text-white transition-colors duration-300 group text-lg"
+                >
+                  {label}
+                  <span className="absolute left-1/2 bottom-[-2px] h-[0.5px] w-0 bg-white transition-all duration-300 transform -translate-x-1/2 group-hover:w-[calc(100%+8px)]" />
+                </Link>
+              ))}
+            </div>
+
+            <ModeToggle />
           </nav>
 
           {/* Mobile Menu Button */}
@@ -58,6 +63,10 @@ export default function Navbar() {
             isMenuOpen ? "opacity-100" : "opacity-0 pointer-events-none"
           }`}
         >
+          <div className="absolute top-6 left-10 m-4">
+            <ModeToggle />
+          </div>
+
           <nav className="h-full flex flex-col items-center justify-center gap-10 text-xl font-semibold">
             {navLinks.map(({ label, href, delay }) => (
               <Link

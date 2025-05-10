@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import { ModeToggle } from "./ThemeSwitch";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -88,8 +87,6 @@ export default function HeroSection() {
 
   return (
     <section className="min-h-screen flex flex-col justify-center px-5 sm:px-10 md:px-20 lg:px-32 dark:text-white text-blue-800 mix-blend-difference relative">
-      <div className="absolute top-4 right-4">{<ModeToggle />}</div>
-
       <motion.div
         className="max-w-4xl mx-auto"
         initial="hidden"
