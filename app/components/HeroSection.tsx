@@ -110,8 +110,9 @@ export default function HeroSection() {
         </div>
 
         <motion.h1
-          className="text-3xl lg:text-5xl font-bold mb-8 text-foreground"
+          className="text-3xl lg:text-5xl font-bold mb-8 text-foreground glitch-text"
           variants={item}
+          data-text="I'M AMAN KHANAL"
         >
           I&apos;M AMAN KHANAL
         </motion.h1>

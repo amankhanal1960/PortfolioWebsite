@@ -176,3 +176,85 @@ body::before {
     @apply bg-background text-foreground;
   }
 }
+.glitch-text {
+  position: relative;
+  color: white;
+  font-family: Arial, sans-serif;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.glitch-text::before,
+.glitch-text::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.glitch-text::before {
+  left: -1px;
+  text-shadow: 1px 0 rgb(255, 105, 180);
+  animation: glitch-1 0.3s infinite steps(20) alternate-reverse;
+  clip-path: inset(80% 0 20% 0);
+}
+
+.glitch-text::after {
+  left: 1.5px;
+  text-shadow: -1.5px 0 rgb(100, 255, 255);
+  animation: glitch-2 0.9s infinite linear alternate-reverse;
+  clip-path: inset(80% 0 0 0);
+}
+
+@keyframes glitch-1 {
+  0% {
+    clip-path: inset(0% 0 90% 0);
+  }
+  100% {
+    clip-path: inset(100% 0 0% 0);
+  }
+}
+
+@keyframes glitch-2 {
+  0% {
+    clip-path: inset(0% 0 90% 0);
+  }
+  100% {
+    clip-path: inset(10% 0 15% 0);
+  }
+}
+
+/* Add noise effect */
+.noise {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  pointer-events: none;
+  animation: noise-anim 0.3s infinite;
+  opacity: 0.1;
+}
+
+@keyframes noise-anim {
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  20% {
+    transform: translate(-3px, 3px);
+  }
+  40% {
+    transform: translate(-5px, -5px);
+  }
+  60% {
+    transform: translate(5px, 5px);
+  }
+  80% {
+    transform: translate(3px, -3px);
+  }
+  100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+}

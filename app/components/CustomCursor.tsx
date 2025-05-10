@@ -38,7 +38,7 @@ export default function CustomCursor() {
     pointer-events-none fixed z-50 h-2 w-2
     top-0 left-0
     -translate-x-1/2 -translate-y-1/2
-    rounded-full bg-black mix-blend-difference
+    rounded-full bg-black
     dark:bg-white
   "
       />
@@ -49,7 +49,6 @@ export default function CustomCursor() {
           h-14 w-14 -translate-x-1/2 -translate-y-1/2
           rounded-full border border-black
           transition-transform duration-400 ease-out
-          will-change-transform 
          dark:border-white
         "
       />
