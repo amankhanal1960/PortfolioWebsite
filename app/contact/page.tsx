@@ -131,7 +131,7 @@ const Contact: React.FC = () => {
             >
               Get in touch or shoot me an email directly on{" "}
               <a
-                href="mailto:hellocodewonders@gmail.com"
+                href="mailto:amankhanal1960@gmail.com"
                 className="text-blue-400 hover:text-blue-300 transition-colors"
               >
                 amankhanal1960@gmail.com
