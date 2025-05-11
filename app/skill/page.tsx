@@ -135,37 +135,47 @@ const TimelineSection: React.FC<TimelineSectionProps> = ({ title, items }) => {
 const Timeline: React.FC = () => {
   return (
     <div className="min-h-screen text-gray-100 py-8">
-      <motion.div
-        className="z-50 px-2"
-        initial={{ x: -20, opacity: 0 }}
-        animate={{ x: 0, opacity: 1 }}
-        transition={{ delay: 0.2 }}
-      >
-        <Link
-          href="/"
-          className="inline-flex items-center text-gray-300 hover:text-white transition-color gap-5"
+      <div className="container mx-auto px-4 max-w-4xl">
+        <motion.div
+          className="z-50 px-2 mb-8"
+          initial={{ x: -20, opacity: 0 }}
+          animate={{ x: 0, opacity: 1 }}
+          transition={{ delay: 0.2 }}
         >
-          <motion.span {...arrowAnim} className="inline-block origin-left">
-            <FaArrowLeft className="w-4 h-4" />
-          </motion.span>
-          <span className="text-sm lg:text-base">Home</span>
-        </Link>
-      </motion.div>
+          <Link
+            href="/"
+            className="inline-flex items-center text-gray-300 hover:text-white transition-color gap-5"
+          >
+            <motion.span {...arrowAnim} className="inline-block origin-left">
+              <FaArrowLeft className="w-4 h-4" />
+            </motion.span>
+            <span className="text-sm lg:text-base">Home</span>
+          </Link>
+        </motion.div>
+      </div>
 
       <TimelineSection title="My Skills." items={skills} />
-      <motion.div className="mt-8 ml-8">
-        <Link
-          href="/projects"
-          className="inline-flex items-center text-foreground hover:opacity-80 transition-opacity"
+
+      <div className="container mx-auto px-4 max-w-4xl">
+        <motion.div
+          className="mt-8 mb-4"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.5 }}
         >
-          <span className="mr-2 lg:text-lg md:text-sm text:xs">
-            Let&apos;s Get In Touch{" "}
-          </span>{" "}
-          <motion.span {...arrowAnim} className="inline-block origin-left">
-            <FaArrowRight className="w-4 h-4" />
-          </motion.span>
-        </Link>
-      </motion.div>
+          <Link
+            href="/contact"
+            className="inline-flex items-center text-foreground hover:opacity-80 transition-opacity py-2"
+          >
+            <span className="mr-2 text-xs sm:text-sm md:text-base lg:text-lg">
+              Let&apos;s Get In Touch{" "}
+            </span>
+            <motion.span {...arrowAnim} className="inline-block origin-left">
+              <FaArrowRight className="w-3 h-3 sm:w-4 sm:h-4" />
+            </motion.span>
+          </Link>
+        </motion.div>
+      </div>
 
       <footer className="text-center text-gray-500 text-sm py-8 mt-8">
         <p>© {new Date().getFullYear()} Aman Khanal. All rights reserved.</p>
