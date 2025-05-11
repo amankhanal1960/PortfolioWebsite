@@ -205,7 +205,7 @@ const Timeline: React.FC = () => {
             className="inline-flex items-center hover:opacity-80 transition-opacity"
           >
             <span className="mr-2 text-xs sm:text-sm md:text-base lg:text-lg">
-              Let&apos;s Continue to Projects{" "}
+              My Skills{" "}
             </span>{" "}
             <motion.span {...arrowAnim} className="inline-block origin-left">
               <FaArrowRight className="w-4 h-4" />

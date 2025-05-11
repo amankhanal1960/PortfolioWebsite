@@ -164,11 +164,11 @@ const Timeline: React.FC = () => {
           transition={{ delay: 0.5 }}
         >
           <Link
-            href="/contact"
+            href="/projects"
             className="inline-flex items-center text-foreground hover:opacity-80 transition-opacity py-2"
           >
             <span className="mr-2 text-xs sm:text-sm md:text-base lg:text-lg">
-              Let&apos;s Get In Touch{" "}
+              Let&apos;s See My Projects{" "}
             </span>
             <motion.span {...arrowAnim} className="inline-block origin-left">
               <FaArrowRight className="w-3 h-3 sm:w-4 sm:h-4" />

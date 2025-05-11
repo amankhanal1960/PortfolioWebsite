@@ -11,8 +11,8 @@ export default function Navbar() {
   const navLinks = [
     { label: "Home", href: "/", delay: 50 },
     { label: "About", href: "/about", delay: 50 },
-    { label: "Projects", href: "/projects", delay: 50 },
     { label: "Skills", href: "/skill", delay: 50 },
+    { label: "Projects", href: "/projects", delay: 50 },
     { label: "Contact", href: "/contact", delay: 50 },
   ];
 
