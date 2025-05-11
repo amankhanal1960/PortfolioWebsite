@@ -4,6 +4,7 @@ import "./globals.css";
 import CustomCursor from "./components/CustomCursor";
 const inter = Inter({ subsets: ["latin"] });
 import { ThemeProvider } from "./providers";
+import { ToastContainer } from "react-toastify";
 
 export default function RootLayout({
   children,
@@ -19,7 +20,10 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <main>{children}</main>
+          <main>
+            {children}
+            <ToastContainer />
+          </main>
           <CustomCursor />
         </ThemeProvider>
       </body>

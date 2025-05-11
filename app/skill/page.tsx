@@ -2,15 +2,10 @@
 
 import type React from "react";
 import Link from "next/link";
-import {
-  FaGithub,
-  FaProductHunt,
-  FaArrowLeft,
-  FaArrowRight,
-} from "react-icons/fa";
 import { motion } from "framer-motion";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
+import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 
 interface TimelineItemProps {
   title: string;
@@ -46,17 +41,6 @@ const itemVariants = {
   }),
 };
 
-const education: TimelineItemProps[] = [
-  {
-    title: "+2, 2020 - 2022",
-    description: `I completed my +2 education at Panchayat mavi, Morang, where I pursued the Science stream. During this time, I developed a strong foundation in various scientific disciplines, including physics, chemistry, and mathematics. My academic journey in the Science stream has fueled my passion for technology and engineering, motivating me to further my studies in the field of Electronics Information and Communication Engineering.`,
-  },
-  {
-    title: "Bachelors, 2022 - Present",
-    description: `I am a 5th semester student at the Institute of Engineering,Thapathali Campus, Tribhuvan University, pursuing a Bachelor's degree in Electronics Information and Communication Engineering. My academic journey has equipped me with a solid foundation in computer science and engineering principles. I am passionate about leveraging my knowledge and skills to contribute to innovative projects and solutions in the field of technology.`,
-  },
-];
-
 const skills: TimelineItemProps[] = [
   {
     title: "Programming Languages",
@@ -76,24 +60,6 @@ const skills: TimelineItemProps[] = [
 - **Additional Tools**: Familiar with package managers (npm, yarn, pnpm).`,
   },
 ];
-
-const items: TimelineItemProps[] = [
-  {
-    title: "Engineering",
-    Icon: FaGithub,
-    description: `The power of first impressions cannot be underestimated, and the gateway to capitalizing on them lies in exceptional website design. An outstanding website transcends mere aesthetics and extends its influence to encompass seamless functionality and user-friendly navigation. Drawing upon my expertise as a seasoned programmer, I possess the unique ability to tackle intricate technical challenges while crafting websites that exude sleekness and visual allure. Moreover, my extensive knowledge of recognized technical standards is complemented by my proficiency in modern building practices, ensuring that every aspect of your website is finely tuned to perfection.`,
-    href: "https://github.com/amankhanal1960",
-    label: "View GitHub",
-  },
-  {
-    title: "Product",
-    description: `While I may not fit the conventional mold of a product manager, my diverse skill set in research, product design, and product coordination empowers me to drive the growth of a product from its inception. As an exceptional analytical thinker, I possess the ability to uphold the product's vision throughout its entire journey, effectively bridging the technical and product aspects. By leveraging my expertise, I can navigate the path from 0 to 1, ensuring the product's success at every stage.`,
-    href: "/products",
-    label: "View Products",
-    Icon: FaProductHunt,
-  },
-];
-
 interface TimelineSectionProps {
   title: string;
   items: TimelineItemProps[];
@@ -186,25 +152,14 @@ const Timeline: React.FC = () => {
         </Link>
       </motion.div>
 
-      <motion.h1
-        className="lg:text-5xl md:text-3xl text-2xl font-bold text-center py-12"
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.7, ease: "easeOut" }}
-      >
-        About Me.
-      </motion.h1>
-
-      <TimelineSection title="Education" items={education} />
-      <TimelineSection title="Skills" items={skills} />
-      <TimelineSection title="Experience" items={items} />
+      <TimelineSection title="My Skills." items={skills} />
       <motion.div className="mt-8 ml-8">
         <Link
           href="/projects"
           className="inline-flex items-center text-foreground hover:opacity-80 transition-opacity"
         >
           <span className="mr-2 lg:text-lg md:text-sm text:xs">
-            Let&apos;s Continue to Projects{" "}
+            Let&apos;s Get In Touch{" "}
           </span>{" "}
           <motion.span {...arrowAnim} className="inline-block origin-left">
             <FaArrowRight className="w-4 h-4" />
