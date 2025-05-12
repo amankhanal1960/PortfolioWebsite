@@ -3,7 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import CustomCursor from "./components/CustomCursor";
 const inter = Inter({ subsets: ["latin"] });
-// import { ThemeProvider } from "./providers";
+import { ThemeProvider } from "./providers";
 import { ToastContainer } from "react-toastify";
 
 export default function RootLayout({
@@ -14,12 +14,12 @@ export default function RootLayout({
   return (
     <html lang="en" className="bg-theme-transition" suppressHydrationWarning>
       <body className={`${inter.className}`}>
-        {/* <ThemeProvider
+        <ThemeProvider
           attribute="class"
           defaultTheme="system"
           enableSystem
           disableTransitionOnChange
-        > */}
+        >
         <main>
           {children}
           <ToastContainer />
