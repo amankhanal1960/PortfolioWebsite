@@ -20,12 +20,12 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-        <main>
-          {children}
-          <ToastContainer />
-        </main>
-        <CustomCursor />
-        {/* </ThemeProvider> */}
+          <main>
+            {children}
+            <ToastContainer />
+          </main>
+          <CustomCursor />
+        </ThemeProvider>
       </body>
     </html>
   );
