@@ -135,7 +135,7 @@ const TimelineSection: React.FC<TimelineSectionProps> = ({ title, items }) => {
                     <item.Icon />
                   </div>
                 )}
-                <h3 className="lg:text-2xl text-lg font-bold text-gray-200">
+                <h3 className="lg:text-2xl text-lg font-bold dark:text-gray-200 text-black">
                   {item.title}
                 </h3>
               </div>
