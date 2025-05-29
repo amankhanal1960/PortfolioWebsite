@@ -86,7 +86,12 @@ export default function HeroSection() {
   };
 
   return (
-    <section className="h-screen flex flex-col justify-center px-5 sm:px-10 md:px-20 lg:px-32 dark:text-white text-blue-800 mix-blend-difference relative pt-16">
+    <section
+      className="
+        h-screen
+        flex flex-col justify-center px-5 sm:px-10 md:px-20 lg:px-32 text-foreground dark:text-foreground relative pt-16
+      "
+    >
       <motion.div
         className="max-w-4xl mx-auto"
         initial="hidden"
@@ -121,28 +126,28 @@ export default function HeroSection() {
           <motion.p variants={item}>
             Your friendly neighborhood Fullstack web developer. I spend most of
             my days (and often nights) painting the Internet canvas with{" "}
-            <span className="text-foreground font-medium">PROJECTS</span> and
-            lines of code, turning zeroes and ones into immersive, interactive
-            experiences,
+            <span className="font-medium">PROJECTS</span> and lines of code,
+            turning zeroes and ones into immersive, interactive experiences.
           </motion.p>
 
           <motion.p variants={item}>
             I tread the path of minimalism, finding beauty in simplicity and
             order. When I&apos;m not crafting beautiful web experiences, you can
-            find me reading{" "}
-            <span className="text-foreground font-medium">ARTICLES</span> or
+            find me reading <span className="font-medium">ARTICLES</span> or
             swaying to the rhythm of classic music, losing myself in the
-            captivating flow of melodies. anyways you can always{" "}
-            <span className="text-foreground font-medium">CONTACT ME !</span>
+            captivating flow of melodies Anyhow, you can always{" "}
+            <span className="font-medium">CONTACT ME!</span>
           </motion.p>
         </div>
 
         <motion.div className="mt-8" variants={item}>
           <Link
             href="/about"
-            className="inline-flex items-center text-foreground hover:opacity-80 transition-opacity"
+            className="inline-flex items-center hover:opacity-80 transition-opacity"
           >
-            <span className="mr-2 lg:text-sm text-xs">See More About Me </span>{" "}
+            <span className="mr-2 lg:text-sm text-xs text-foreground">
+              See More About Me
+            </span>{" "}
             <motion.span {...arrowAnim}>
               <FontAwesomeIcon icon={faArrowRight} />
             </motion.span>
@@ -158,57 +163,57 @@ export default function HeroSection() {
         >
           <motion.a
             href="https://x.com/AmanKhanal1960"
-            className="text-foreground hover:opacity-80 transition-opacity"
+            className="hover:opacity-80 transition-opacity"
             variants={socialItem}
             whileHover={{ y: -3 }}
             rel="noopener noreferrer"
             target="_blank"
           >
-            <FontAwesomeIcon icon={faXTwitter} />
+            <FontAwesomeIcon icon={faXTwitter} className="text-foreground" />
             <span className="sr-only">Twitter</span>
           </motion.a>
           <motion.a
             href="https://www.facebook.com/amankhanal1960"
-            className="text-foreground hover:opacity-80 transition-opacity"
+            className="hover:opacity-80 transition-opacity"
             variants={socialItem}
             whileHover={{ y: -3 }}
             rel="noopener noreferrer"
             target="_blank"
           >
-            <FontAwesomeIcon icon={faFacebook} />
+            <FontAwesomeIcon icon={faFacebook} className="text-foreground" />
             <span className="sr-only">Facebook</span>
           </motion.a>
           <motion.a
             href="https://www.linkedin.com/in/aman-khanal-225700260/"
-            className="text-foreground hover:opacity-80 transition-opacity"
+            className="hover:opacity-80 transition-opacity"
             variants={socialItem}
             whileHover={{ y: -3 }}
             rel="noopener noreferrer"
             target="_blank"
           >
-            <FontAwesomeIcon icon={faLinkedin} />
+            <FontAwesomeIcon icon={faLinkedin} className="text-foreground" />
             <span className="sr-only">LinkedIn</span>
           </motion.a>
           <motion.a
             href="https://github.com/amankhanal1960"
-            className="text-foreground hover:opacity-80 transition-opacity"
+            className="hover:opacity-80 transition-opacity"
             variants={socialItem}
             whileHover={{ y: -3 }}
             rel="noopener noreferrer"
             target="_blank"
           >
-            <FontAwesomeIcon icon={faGithub} />
+            <FontAwesomeIcon icon={faGithub} className="text-foreground" />
             <span className="sr-only">GitHub</span>
           </motion.a>
           <motion.a
             href="https://www.instagram.com/_amankhanal/"
-            className="text-foreground hover:opacity-80 transition-opacity"
+            className="hover:opacity-80 transition-opacity"
             variants={socialItem}
             whileHover={{ y: -3 }}
             rel="noopener noreferrer"
             target="_blank"
           >
-            <FontAwesomeIcon icon={faInstagram} />
+            <FontAwesomeIcon icon={faInstagram} className="text-foreground" />
             <span className="sr-only">Instagram</span>
           </motion.a>
         </motion.div>

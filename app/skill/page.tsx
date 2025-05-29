@@ -69,7 +69,7 @@ const TimelineSection: React.FC<TimelineSectionProps> = ({ title, items }) => {
   return (
     <div className="container mx-auto px-4 max-w-4xl mb-16">
       <motion.h2
-        className="lg:text-3xl text-xl font-bold mb-8 text-center text-gray-100"
+        className="lg:text-3xl text-xl font-bold mb-8 text-center text-foreground"
         initial={{ opacity: 0, y: -10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
@@ -78,7 +78,7 @@ const TimelineSection: React.FC<TimelineSectionProps> = ({ title, items }) => {
       </motion.h2>
       <div className="relative">
         {/* Vertical Line */}
-        <div className="absolute left-1 sm:left-2 md:left-3 lg:left-4 top-2 bottom-0 w-[1px] bg-gray-200 h-[calc(100%-8px)]"></div>
+        <div className="absolute left-1 sm:left-2 md:left-3 lg:left-4 top-2 bottom-0 w-[1px] bg-foreground h-[calc(100%-8px)]"></div>
 
         {items.map((item, idx) => (
           <motion.div
@@ -91,23 +91,23 @@ const TimelineSection: React.FC<TimelineSectionProps> = ({ title, items }) => {
             variants={itemVariants}
           >
             {/* Circle Bullet */}
-            <div className="absolute left-1 sm:left-2 md:left-3 lg:left-4 top-2 w-4 h-4 border-2 border-black bg-gray-200 rounded-full transform -translate-x-1/2 z-10"></div>
+            <div className="absolute left-1 sm:left-2 md:left-3 lg:left-4 top-2 w-4 h-4 border-2 border-foreground bg-foreground rounded-full transform -translate-x-1/2 z-10"></div>
 
             {/* Content Container */}
             <div className="ml-6 sm:ml-8 md:ml-10 lg:ml-12 flex-1">
-              <div className="flex items-center mb-3">
+              <div className="flex items-center mb-3 text-foreground">
                 {item.Icon && (
                   <div className="p-3 mr-2">
                     <item.Icon />
                   </div>
                 )}
-                <h3 className="lg:text-2xl text-lg font-bold text-gray-200">
+                <h3 className="lg:text-2xl text-lg font-bold text-foreground">
                   {item.title}
                 </h3>
               </div>
 
               <div className="p-2">
-                <div className="text-gray-300 leading-relaxed mb-4 lg:text-sm">
+                <div className="text-foreground leading-relaxed mb-4 lg:text-sm">
                   <ReactMarkdown remarkPlugins={[remarkGfm]}>
                     {item.description}
                   </ReactMarkdown>
@@ -120,7 +120,7 @@ const TimelineSection: React.FC<TimelineSectionProps> = ({ title, items }) => {
                     rel="noopener noreferrer"
                   >
                     {item.label} →
-                    <span className="absolute left-1/2 bottom-[-2px] h-[0.5px] w-0 bg-white transition-all duration-300 transform -translate-x-1/2 group-hover:w-[calc(100%+8px)]"></span>
+                    <span className="absolute left-1/2 bottom-[-2px] h-[0.5px] w-0 bg-foreground transition-all duration-300 transform -translate-x-1/2 group-hover:w-[calc(100%+8px)]"></span>
                   </a>
                 )}
               </div>
@@ -144,7 +144,7 @@ const Timeline: React.FC = () => {
         >
           <Link
             href="/"
-            className="inline-flex items-center text-gray-300 hover:text-white transition-color gap-5"
+            className="inline-flex items-center text-foreground transition-color gap-5"
           >
             <motion.span {...arrowAnim} className="inline-block origin-left">
               <FaArrowLeft className="w-4 h-4" />
@@ -167,7 +167,7 @@ const Timeline: React.FC = () => {
             href="/projects"
             className="inline-flex items-center text-foreground hover:opacity-80 transition-opacity py-2"
           >
-            <span className="mr-2 text-xs sm:text-sm md:text-base lg:text-lg">
+            <span className="mr-2 text-xs sm:text-sm md:text-base lg:text-lg text-foreground ">
               Let&apos;s See My Projects{" "}
             </span>
             <motion.span {...arrowAnim} className="inline-block origin-left">

@@ -51,7 +51,7 @@ export default function Projects() {
     <div className="min-h-screen py-12 sm:py-16">
       <div className="container mx-auto px-4 max-w-6xl">
         <motion.h1
-          className="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-8 sm:mb-12 text-gray-900 dark:text-white"
+          className="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-8 sm:mb-12 text-foreground"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
@@ -71,7 +71,7 @@ export default function Projects() {
             href="/contact"
             className="inline-flex items-center hover:opacity-80 transition-opacity group"
           >
-            <span className="mr-2 text-sm md:text-base lg:text-lg text-gray-700 dark:text-gray-300 group-hover:text-gray-900 dark:group-hover:text-white transition-colors">
+            <span className="mr-2 text-sm md:text-base lg:text-lg text-foreground transition-colors">
               Let&apos;s Get In Touch{" "}
             </span>
             <motion.span {...arrowAnim} className="inline-block origin-left">

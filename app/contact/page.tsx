@@ -1,3 +1,4 @@
+// components/Contact.jsx
 "use client";
 
 import type React from "react";
@@ -15,7 +16,7 @@ import {
   faInstagram,
 } from "@fortawesome/free-brands-svg-icons";
 
-const container = {
+const containerVariants = {
   hidden: { opacity: 0 },
   show: {
     opacity: 1,
@@ -31,16 +32,14 @@ const socialItem = {
   show: {
     opacity: 1,
     scale: 1,
-    transition: {
-      duration: 0.3,
-    },
+    transition: { duration: 0.3 },
   },
 };
 
 const arrowAnim = {
   animate: {
-    x: [1, 10, 1],
-    scaleX: [1.5, 1.5, 1.5],
+    x: [1, 10, 1], // small left-right animation
+    scaleX: [1.5, 1.5, 1.5], // slight horizontal stretch
   },
   transition: {
     duration: 1.5,
@@ -67,10 +66,7 @@ const Contact: React.FC = () => {
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
     const { name, value } = e.target;
-    setFormData((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
+    setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -78,6 +74,7 @@ const Contact: React.FC = () => {
     setIsSubmitting(true);
 
     try {
+      // Simulate network request
       await new Promise((res) => setTimeout(res, 1000));
       setFormData({ name: "", email: "", message: "" });
       toast.success("Message Sent Successfully!");
@@ -89,7 +86,8 @@ const Contact: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen text-gray-100 relative overflow-hidden">
+    <div className="min-h-screen bg-background text-foreground relative overflow-hidden">
+      {/* Back to Home Link */}
       <motion.div
         className="z-50 px-2 pt-4"
         initial={{ x: -20, opacity: 0 }}
@@ -98,7 +96,7 @@ const Contact: React.FC = () => {
       >
         <Link
           href="/"
-          className="inline-flex items-center text-gray-300 hover:text-white transition-color gap-5"
+          className="inline-flex items-center text-foreground transition-color gap-5"
         >
           <motion.span {...arrowAnim} className="inline-block origin-left">
             <FaArrowLeft className="w-4 h-4" />
@@ -107,13 +105,15 @@ const Contact: React.FC = () => {
         </Link>
       </motion.div>
 
+      {/* Main Container */}
       <div className="container mx-auto px-4 py-16 relative z-10">
         <div className="max-w-2xl mx-auto">
+          {/* Header Title */}
           <motion.div
+            className="mb-12"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="mb-12"
           >
             <motion.h1
               className="text-5xl md:text-6xl font-bold mb-6"
@@ -124,21 +124,22 @@ const Contact: React.FC = () => {
               Contact.
             </motion.h1>
             <motion.p
-              className="text-gray-400 text-sm"
+              className="text-muted-foreground text-sm"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.7, delay: 0.4 }}
             >
-              Get in touch or shoot me an email directly on{" "}
+              Get in touch or shoot me an email directly at{" "}
               <a
                 href="mailto:amankhanal1960@gmail.com"
-                className="text-blue-400 hover:text-blue-300 transition-colors"
+                className="text-foreground font-semibold hover:underline transition-colors"
               >
                 amankhanal1960@gmail.com
               </a>
             </motion.p>
           </motion.div>
 
+          {/* Contact Form */}
           <motion.form
             onSubmit={handleSubmit}
             initial={{ opacity: 0, y: 40 }}
@@ -146,6 +147,7 @@ const Contact: React.FC = () => {
             transition={{ duration: 0.8, delay: 0.6 }}
             className="space-y-6"
           >
+            {/* Name Field */}
             <div>
               <motion.input
                 whileFocus={{ scale: 1.01 }}
@@ -156,10 +158,21 @@ const Contact: React.FC = () => {
                 onChange={handleChange}
                 placeholder="Name"
                 required
-                className="w-full bg-transparent border-b border-gray-400 focus:border-gray-200 py-4 px-2 text-gray-200 placeholder-gray-500 focus:placeholder-gray-200 outline-none transition-all duration-300"
+                className="
+                  w-full
+                  bg-transparent
+                  border-b border-foreground
+                  focus:border-primary
+                  py-4 px-2
+                  text-foreground
+                  placeholder-muted-foreground
+                  outline-none
+                  transition-all duration-300
+                "
               />
             </div>
 
+            {/* Email Field */}
             <div>
               <motion.input
                 whileFocus={{ scale: 1.01 }}
@@ -170,10 +183,21 @@ const Contact: React.FC = () => {
                 onChange={handleChange}
                 placeholder="Email"
                 required
-                className="w-full bg-transparent border-b border-gray-400 focus:border-gray-200 py-4 px-2 text-gray-200 placeholder-gray-500 focus:placeholder-gray-200 outline-none transition-all duration-300"
+                className="
+                  w-full
+                  bg-transparent
+                  border-b border-foreground
+                  focus:border-primary
+                  py-4 px-2
+                  text-foreground
+                  placeholder-muted-foreground
+                  outline-none
+                  transition-all duration-300
+                "
               />
             </div>
 
+            {/* Message Field */}
             <div>
               <motion.textarea
                 whileFocus={{ scale: 1.01 }}
@@ -184,84 +208,93 @@ const Contact: React.FC = () => {
                 placeholder="Message"
                 required
                 rows={5}
-                className="w-full bg-transparent border-b border-gray-400 focus:border-gray-200 py-4 px-2 text-gray-200 placeholder-gray-500 focus:placeholder-gray-200 outline-none transition-all duration-300 resize-none"
+                className="
+                  w-full
+                  bg-transparent
+                  border-b border-foreground
+                  focus:border-primary
+                  py-4 px-2
+                  text-foreground
+                  placeholder-muted-foreground
+                  outline-none
+                  transition-all duration-300
+                  resize-none
+                "
               />
             </div>
 
+            {/* Submit Button */}
             <div className="pt-4">
               <motion.button
                 whileHover={{ scale: 1.03 }}
                 whileTap={{ scale: 0.98 }}
                 type="submit"
                 disabled={isSubmitting}
-                className="px-7 py-[14px] bg-gray-100 hover:bg-white text-gray-900 font-medium rounded-lg transition-all duration-300 disabled:opacity-70 disabled:cursor-not-allowed"
+                className="
+                  px-7 py-[14px]
+                  dark:bg-gray-400
+                  text-foreground
+                  font-medium
+                  rounded-lg
+                  transition-all duration-300
+                  hover:opacity-80
+                  disabled:opacity-70 disabled:cursor-not-allowed
+
+                "
               >
                 {isSubmitting ? "Sending..." : "Send Message"}
               </motion.button>
             </div>
           </motion.form>
+
+          {/* Social Icons */}
           <motion.div
             className="flex space-x-6 mt-10 justify-start"
-            variants={container}
+            variants={containerVariants}
             initial="hidden"
             animate="show"
             transition={{ delayChildren: 1.2, staggerChildren: 0.1 }}
           >
-            <motion.a
-              href="https://x.com/AmanKhanal1960"
-              className="text-foreground hover:opacity-80 transition-opacity"
-              variants={socialItem}
-              whileHover={{ y: -3 }}
-              rel="noopener noreferrer"
-              target="_blank"
-            >
-              <FontAwesomeIcon icon={faXTwitter} />
-              <span className="sr-only">Twitter</span>
-            </motion.a>
-            <motion.a
-              href="https://www.facebook.com/amankhanal1960"
-              className="text-foreground hover:opacity-80 transition-opacity"
-              variants={socialItem}
-              whileHover={{ y: -3 }}
-              rel="noopener noreferrer"
-              target="_blank"
-            >
-              <FontAwesomeIcon icon={faFacebook} />
-              <span className="sr-only">Facebook</span>
-            </motion.a>
-            <motion.a
-              href="https://www.linkedin.com/in/aman-khanal-225700260/"
-              className="text-foreground hover:opacity-80 transition-opacity"
-              variants={socialItem}
-              whileHover={{ y: -3 }}
-              rel="noopener noreferrer"
-              target="_blank"
-            >
-              <FontAwesomeIcon icon={faLinkedin} />
-              <span className="sr-only">LinkedIn</span>
-            </motion.a>
-            <motion.a
-              href="https://github.com/amankhanal1960"
-              className="text-foreground hover:opacity-80 transition-opacity"
-              variants={socialItem}
-              whileHover={{ y: -3 }}
-              rel="noopener noreferrer"
-              target="_blank"
-            >
-              <FontAwesomeIcon icon={faGithub} />
-              <span className="sr-only">GitHub</span>
-            </motion.a>
-            <motion.a
-              href="https://www.instagram.com/_amankhanal/"
-              className="text-foreground hover:opacity-80 transition-opacity"
-              variants={socialItem}
-              whileHover={{ y: -3 }}
-              rel="noopener noreferrer"
-              target="_blank"
-            >
-              <FontAwesomeIcon icon={faInstagram} />
-              <span className="sr-only">Instagram</span>
-            </motion.a>
+            {[
+              {
+                href: "https://x.com/AmanKhanal1960",
+                icon: faXTwitter,
+                label: "Twitter",
+              },
+              {
+                href: "https://www.facebook.com/amankhanal1960",
+                icon: faFacebook,
+                label: "Facebook",
+              },
+              {
+                href: "https://www.linkedin.com/in/aman-khanal-225700260/",
+                icon: faLinkedin,
+                label: "LinkedIn",
+              },
+              {
+                href: "https://github.com/amankhanal1960",
+                icon: faGithub,
+                label: "GitHub",
+              },
+              {
+                href: "https://www.instagram.com/_amankhanal/",
+                icon: faInstagram,
+                label: "Instagram",
+              },
+            ].map(({ href, icon, label }) => (
+              <motion.a
+                key={href}
+                href={href}
+                className="text-foreground hover:opacity-80 transition-opacity"
+                variants={socialItem}
+                whileHover={{ y: -3 }}
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                <FontAwesomeIcon icon={icon} />
+                <span className="sr-only">{label}</span>
+              </motion.a>
+            ))}
           </motion.div>
         </div>
       </div>
