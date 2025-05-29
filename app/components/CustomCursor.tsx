@@ -38,7 +38,8 @@ export default function CustomCursor() {
     pointer-events-none fixed z-50 h-2 w-2
     top-0 left-0
     -translate-x-1/2 -translate-y-1/2
-    rounded-full bg-foreground
+    rounded-full bg-black
+    dark:bg-white
   "
       />
       <div

@@ -58,7 +58,7 @@ export default function Navbar() {
                   <span
                     className="
                       absolute left-1/2 bottom-[-2px] h-[1px] w-0
-                      bg-foreground
+                      bg-white
                       transition-all duration-300
                       transform -translate-x-1/2
                       group-hover:w-[calc(100%+8px)]

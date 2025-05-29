@@ -67,7 +67,7 @@ interface TimelineSectionProps {
 
 const TimelineSection: React.FC<TimelineSectionProps> = ({ title, items }) => {
   return (
-    <div className="container mx-auto px-4 max-w-4xl mb-16">
+    <div className="container mx-auto px-8 max-w-4xl mb-16">
       <motion.h2
         className="lg:text-3xl text-xl font-bold mb-8 text-center text-foreground"
         initial={{ opacity: 0, y: -10 }}
@@ -78,7 +78,7 @@ const TimelineSection: React.FC<TimelineSectionProps> = ({ title, items }) => {
       </motion.h2>
       <div className="relative">
         {/* Vertical Line */}
-        <div className="absolute left-1 sm:left-2 md:left-3 lg:left-4 top-2 bottom-0 w-[1px] bg-foreground h-[calc(100%-8px)]"></div>
+        <div className="absolute left-1 sm:left-2 md:left-3 lg:left-4 top-2 bottom-0 w-[1px] dark:bg-white bg:black h-[calc(100%-8px)]"></div>
 
         {items.map((item, idx) => (
           <motion.div
@@ -91,7 +91,7 @@ const TimelineSection: React.FC<TimelineSectionProps> = ({ title, items }) => {
             variants={itemVariants}
           >
             {/* Circle Bullet */}
-            <div className="absolute left-1 sm:left-2 md:left-3 lg:left-4 top-2 w-4 h-4 border-2 border-foreground bg-foreground rounded-full transform -translate-x-1/2 z-10"></div>
+            <div className="absolute left-1 sm:left-2 md:left-3 lg:left-4 top-2 w-4 h-4 border-2 dark:bg-black bg-white rounded-full transform -translate-x-1/2 z-10"></div>
 
             {/* Content Container */}
             <div className="ml-6 sm:ml-8 md:ml-10 lg:ml-12 flex-1">

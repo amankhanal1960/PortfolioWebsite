@@ -89,7 +89,7 @@ export default function HeroSection() {
     <section
       className="
         h-screen
-        flex flex-col justify-center px-5 sm:px-10 md:px-20 lg:px-32 text-foreground dark:text-foreground relative pt-16
+        flex flex-col justify-center px-5 sm:px-10 md:px-20 lg:px-32 text-foreground relative pt-16
       "
     >
       <motion.div
@@ -133,10 +133,16 @@ export default function HeroSection() {
           <motion.p variants={item}>
             I tread the path of minimalism, finding beauty in simplicity and
             order. When I&apos;m not crafting beautiful web experiences, you can
-            find me reading <span className="font-medium">ARTICLES</span> or
-            swaying to the rhythm of classic music, losing myself in the
+            find me reading
+            <Link href="/articles" className="font-medium">
+              {" "}
+              ARTICLES{" "}
+            </Link>
+            or swaying to the rhythm of classic music, losing myself in the
             captivating flow of melodies Anyhow, you can always{" "}
-            <span className="font-medium">CONTACT ME!</span>
+            <Link href="/contact" className="font-medium">
+              CONTACT ME!
+            </Link>
           </motion.p>
         </div>
 
