@@ -139,7 +139,7 @@ export default function HeroSection() {
               ARTICLES{" "}
             </Link>
             or swaying to the rhythm of classic music, losing myself in the
-            captivating flow of melodies Anyhow, you can always{" "}
+            captivating flow of melodies. Anways, you can always{" "}
             <Link href="/contact" className="font-medium">
               CONTACT ME!
             </Link>
