@@ -74,11 +74,22 @@ const Contact: React.FC = () => {
     setIsSubmitting(true);
 
     try {
-      // Simulate network request
-      await new Promise((res) => setTimeout(res, 1000));
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+      if (!response.ok) {
+        const { error } = await response.json();
+        throw new Error(error || "Failed to send message");
+      }
+
       setFormData({ name: "", email: "", message: "" });
       toast.success("Message Sent Successfully!");
-    } catch {
+    } catch (error) {
+      console.error(error);
       toast.error("Failed to Send Message. Please try again.");
     } finally {
       setIsSubmitting(false);
