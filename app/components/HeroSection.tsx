@@ -126,7 +126,7 @@ export default function HeroSection() {
           <motion.p variants={item}>
             Your friendly neighborhood Fullstack web developer. I spend most of
             my days (and often nights) painting the Internet canvas with{" "}
-            <Link href="/projects" className="font-medium">
+            <Link href="/projects" className="font-semibold">
               {" "}
               PROJECTS{" "}
             </Link>
@@ -138,13 +138,13 @@ export default function HeroSection() {
             I tread the path of minimalism, finding beauty in simplicity and
             order. When I&apos;m not crafting beautiful web experiences, you can
             find me reading
-            <Link href="/articles" className="font-medium">
+            <Link href="/articles" className="font-semibold">
               {" "}
               ARTICLES{" "}
             </Link>
             or swaying to the rhythm of classic music, losing myself in the
             captivating flow of melodies. Anways, you can always{" "}
-            <Link href="/contact" className="font-medium">
+            <Link href="/contact" className="font-semibold">
               CONTACT ME!
             </Link>
           </motion.p>
