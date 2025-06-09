@@ -126,8 +126,12 @@ export default function HeroSection() {
           <motion.p variants={item}>
             Your friendly neighborhood Fullstack web developer. I spend most of
             my days (and often nights) painting the Internet canvas with{" "}
-            <span className="font-medium">PROJECTS</span> and lines of code,
-            turning zeroes and ones into immersive, interactive experiences.
+            <Link href="/projects" className="font-medium">
+              {" "}
+              PROJECTS{" "}
+            </Link>
+            and lines of code, turning zeroes and ones into immersive,
+            interactive experiences.
           </motion.p>
 
           <motion.p variants={item}>

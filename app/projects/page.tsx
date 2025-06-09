@@ -40,7 +40,7 @@ const projects: ProjectProps[] = [
   {
     title: "Portfolio Website",
     description: "A personal portfolio website showcasing projects and skills.",
-    imageUrl: "/portfolio1.png",
+    imageUrl: "/portfolio.png",
     projectUrl: "https://portfolio-website-two-gray-97.vercel.app/",
     tags: ["Next.js", "React", "Tailwind CSS", "Responsive Design"],
   },
