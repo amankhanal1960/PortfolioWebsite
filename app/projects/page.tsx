@@ -5,7 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowUpRight, ExternalLink } from "lucide-react";
-import { FaArrowRight } from "react-icons/fa";
+import { FaArrowRight, FaArrowLeft } from "react-icons/fa";
 
 interface ProjectProps {
   title: string;
@@ -48,8 +48,24 @@ const projects: ProjectProps[] = [
 
 export default function Projects() {
   return (
-    <div className="min-h-screen py-12 sm:py-16">
+    <div className="min-h-screen py-8">
       <div className="container mx-auto px-4 max-w-6xl">
+        <motion.div
+          className="z-50 px-2"
+          initial={{ x: -20, opacity: 0 }}
+          animate={{ x: 0, opacity: 1 }}
+          transition={{ delay: 0.2 }}
+        >
+          <Link
+            href="/"
+            className="inline-flex items-center text-foreground hover:text-white transition-color gap-10 group"
+          >
+            <motion.span {...arrowAnim} className="inline-block origin-left">
+              <FaArrowLeft className="w-4 h-4" />
+            </motion.span>
+            <span className="text-sm lg:text-base">Home</span>
+          </Link>
+        </motion.div>
         <motion.h1
           className="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-8 sm:mb-12 text-foreground"
           initial={{ opacity: 0, y: 20 }}

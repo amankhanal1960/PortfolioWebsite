@@ -1,10 +1,11 @@
 import type React from "react";
-import { Inter } from "next/font/google";
+import { Playfair_Display } from "next/font/google";
 import "./globals.css";
 import CustomCursor from "./components/CustomCursor";
-const inter = Inter({ subsets: ["latin"] });
 import { ThemeProvider } from "./providers";
 import { ToastContainer } from "react-toastify";
+
+const playfair = Playfair_Display({ subsets: ["latin"] });
 
 export default function RootLayout({
   children,
@@ -13,7 +14,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="bg-theme-transition" suppressHydrationWarning>
-      <body className={`${inter.className}`}>
+      <body className={`${playfair.className}`}>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
