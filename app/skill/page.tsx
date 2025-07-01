@@ -91,7 +91,7 @@ const TimelineSection: React.FC<TimelineSectionProps> = ({ title, items }) => {
             variants={itemVariants}
           >
             {/* Circle Bullet */}
-            <div className="absolute left-1 sm:left-2 md:left-3 lg:left-4 top-2 w-4 h-4 border-2 dark:bg-black bg-white rounded-full transform -translate-x-1/2 z-10"></div>
+            <div className="absolute left-1 sm:left-2 md:left-3 lg:left-4 top-2 w-4 h-4 border-2 bg-[#0B1321] rounded-full transform -translate-x-1/2 z-10"></div>
 
             {/* Content Container */}
             <div className="ml-6 sm:ml-8 md:ml-10 lg:ml-12 flex-1">

@@ -154,7 +154,7 @@ function ProjectCard({
       </div>
 
       {/* Project Info */}
-      <div className="p-4 sm:p-6 bg-white dark:bg-gray-900 rounded-b-xl flex flex-col flex-grow">
+      <div className="p-4 sm:p-6  dark:bg-gray-900 bg-white rounded-b-xl flex flex-col flex-grow">
         <div className="flex justify-between items-start mb-2">
           <h3 className="text-base sm:text-lg md:text-xl font-bold text-gray-900 dark:text-gray-100 group-hover:text-gray-100 transition-colors duration-300">
             {project.title}
