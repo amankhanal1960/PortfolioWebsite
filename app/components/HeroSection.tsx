@@ -19,6 +19,7 @@ export default function HeroSection() {
     "Bonjour",
     "Salut",
     "Hola",
+    "Halløja",
     "Ciao",
     "Guten Tag",
     "Namaste",
@@ -50,7 +51,7 @@ export default function HeroSection() {
       opacity: 1,
       y: 0,
       transition: {
-        duration: 0.5,
+        duration: 0.3,
       },
     },
   };
