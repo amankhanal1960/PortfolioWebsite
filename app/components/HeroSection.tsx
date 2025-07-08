@@ -20,6 +20,7 @@ export default function HeroSection() {
     "Salut",
     "Hola",
     "Halløja",
+    "Privet",
     "Ciao",
     "Guten Tag",
     "Namaste",
