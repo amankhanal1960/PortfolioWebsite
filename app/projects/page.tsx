@@ -35,7 +35,7 @@ const projects: ProjectProps[] = [
       "A full-featured Medium clone with article publishing capabilities and user authentication.",
     imageUrl: "/medium1.png",
     projectUrl: "https://medium-clone-three-nu.vercel.app/",
-    tags: ["Next.js", "React", "Tailwind CSS", "Authentication"],
+    tags: ["Next.js", "Supabase", "Tailwind CSS", "Nextauth.js"],
   },
   {
     title: "Portfolio Website",
@@ -43,6 +43,13 @@ const projects: ProjectProps[] = [
     imageUrl: "/portfolio.png",
     projectUrl: "https://amankhanal.vercel.app/",
     tags: ["Next.js", "React", "Tailwind CSS", "Responsive Design"],
+  },
+  {
+    title: "Lost And Found Management System",
+    description: "A management system for lost and found items.",
+    imageUrl: "/lostandfound.png",
+    projectUrl: "https://lost-and-found-management.vercel.app/",
+    tags: ["Next.js", "Supabase", "Tailwind CSS", "PostgresSQL", "Neon"],
   },
 ];
 
@@ -96,6 +103,9 @@ export default function Projects() {
           </Link>
         </div>
       </div>
+      <footer className="text-center text-gray-500 text-sm py-8 mt-8">
+        <p>© {new Date().getFullYear()} Aman Khanal. All rights reserved.</p>
+      </footer>
     </div>
   );
 }

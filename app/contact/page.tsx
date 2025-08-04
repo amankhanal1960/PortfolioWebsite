@@ -311,6 +311,9 @@ const Contact: React.FC = () => {
           </div>
         </div>
       </div>
+      <footer className="text-center text-gray-500 text-sm py-8 mt-8">
+        <p>© {new Date().getFullYear()} Aman Khanal. All rights reserved.</p>
+      </footer>
     </div>
   );
 };
